@@ -1,0 +1,19 @@
+function [enhancedImageSet] = enhanceContrast(inputImageSet);
+
+%Enhancing contarst of for pre processing
+
+enhancedImageSet = [];
+
+for i=1:size(inputImageSet,1)
+    image= inputImageSet(i,:);
+    %convert to 8-bit so imadjust can adjust the images contrast
+    eightBitImage = uint8(image);
+    %enhance contrast
+    adjustedImage = imadjust(eightBitImage);
+    for j=1:size(inputImageSet, 2)
+        enhancedImageSet(i,) = adjustedImage;
+    end
+end
+
+end
+
